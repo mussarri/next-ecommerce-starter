@@ -16,7 +16,7 @@ export async function generateMetadata({ params, searchParams }) {
   };
 }
 async function getData(name) {
-  const res = await fetch("http:/localhost:3000/api/products/" + name);
+  const res = await fetch("http:/127.0.0.1:3000/api/products/" + name);
 
   return res.json();
 }
