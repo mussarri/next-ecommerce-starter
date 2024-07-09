@@ -1,10 +1,5 @@
 async function getData() {
-  const res = await fetch("http:/127.0.0.1:3000/api/products");
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
+  const res = {};
   return res.json();
 }
 
