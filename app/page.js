@@ -1,5 +1,8 @@
 async function getData() {
-  const res = {};
+  const res = {
+    products: [],
+  };
+
   return res.json();
 }
 

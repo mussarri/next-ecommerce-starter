@@ -16,7 +16,9 @@ export async function generateMetadata({ params, searchParams }) {
   };
 }
 async function getData(name) {
-  const res = {};
+  const res = {
+    products: [],
+  };
 
   return res.json();
 }
