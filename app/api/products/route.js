@@ -1,9 +1,9 @@
-import connectDB from "@/app/lib/connectDb";
-import User from "@/model/User";
+import connectDB from "../../lib/connectDb";
+import Product from "../../../model/Product";
 
-export async function GET(request) {
+export async function GET(req, res) {
   await connectDB();
-
-  const users = await User.find();
-  return Response.json({ users });
+  const products = await Product.find({});
+  console.log(products);
+  return Response.json({ products });
 }

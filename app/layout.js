@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <div className="max-width py-5 ">{children}</div>
+        <div className="max-width py-5 h-full ">{children}</div>
       </body>
     </html>
   );

@@ -1,9 +1,9 @@
-import connectDB from "@/app/lib/connectDb";
-import User from "@/model/User";
+import Category from "../../../model/Category";
+import connectDB from "../../lib/connectDb";
 
-export async function GET(request) {
+export async function GET(request, route) {
   await connectDB();
+  const users = await User.find({});
 
-  const users = await User.find();
   return Response.json({ users });
 }

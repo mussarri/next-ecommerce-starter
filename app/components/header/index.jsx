@@ -3,7 +3,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="w-full h-[60px] flex border-b border-gray-900">
+    <header className="w-full h-[60px] flex border-b border-gray-900 fixed">
       <div className="flex justify-between items-center max-width w-full">
         <Link href={"/"}>LOGO</Link>
         <div className="flex gap-3">

@@ -15,7 +15,13 @@ export async function generateMetadata({ params, searchParams }) {
     },
   };
 }
+async function getData(name) {
+  const res = await fetch("http:/localhost:3000/api/products/" + name);
 
-export default function Page({ params }) {
+  return res.json();
+}
+
+export default async function Page({ params }) {
+  const data = await getData(params.name);
   return <div>My Post: {params.name}</div>;
 }
