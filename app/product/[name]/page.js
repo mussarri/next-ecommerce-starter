@@ -20,7 +20,7 @@ async function getData(name) {
     products: [],
   };
 
-  return res.json();
+  return res;
 }
 
 export default async function Page({ params }) {

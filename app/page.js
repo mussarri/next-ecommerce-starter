@@ -3,7 +3,7 @@ async function getData() {
     products: [],
   };
 
-  return res.json();
+  return res;
 }
 
 export default async function Home() {
