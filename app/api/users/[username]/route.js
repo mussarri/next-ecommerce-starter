@@ -9,7 +9,7 @@ export async function GET(request, route) {
   return Response.json({ user });
 }
 
-export async function GET(request, route) {
+export async function DELETE(request, route) {
   await connectDB();
   const { username } = request.nextUrl.searchParams.get("username");
   const user = await Category.deleteOne({ username });
