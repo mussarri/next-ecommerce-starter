@@ -5,7 +5,7 @@ import MobileProducts from "./components/mobileProducts";
 import Header from "./components/header";
 
 async function getData() {
-  const res = await fetch("http://127.0.0.1:3000/api/products", {
+  const res = await fetch(process.env.API_URL + "api/products", {
     cache: "no-store",
   });
   return res.json();

@@ -3,14 +3,14 @@ import ProductCard from "../../components/productCard";
 import Filter from "../../components/filter/index";
 
 async function getData(category, page, min, max) {
-  let url = new URL("http://127.0.0.1/api/products");
+  let url = new URL(process.env.API_URL + "api/products");
   let params = new URLSearchParams(url.search);
   category && params.set("category", category);
   page && params.set("page", page);
   min && params.set("min", min);
   max && params.set("max", max);
   const res = await fetch(
-    "http://127.0.0.1/api/products?" + params.toString(),
+    process.env.API_URL + "api/products?" + params.toString(),
     {
       cache: "no-store",
     }
