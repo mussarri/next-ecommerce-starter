@@ -3,19 +3,33 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="w-full h-[60px] flex border-b border-gray-900 fixed">
-      <div className="flex justify-between items-center max-width w-full">
-        <Link href={"/"}>LOGO</Link>
-        <div className="flex gap-3">
+    <header
+      className="w-full h-[80px] flex  bg-white  border-b"
+      style={{ zIndex: 1000, borderColor: "#ddd" }}
+    >
+      <div className="flex justify-between items-center max-width w-full p-2 px-5">
+        <a href={"/"} className="logo font-semibold font-xl text-buttonhover"  style={{fontSize : '1.3rem'}}>
+          E-commerce
+        </a>
+        <div className="flex gap-3 capitalize">
           <Link
-            href={"/login"}
-            className="p-2 text-sm bg-indigo-500 rounded text-white"
+            href={"/cart"}
+            className="p-2 text-sm bg-indigo-500 rounded "
           >
+            Cart
+          </Link>
+          <Link
+            href={"/products"}
+            className="p-2 text-sm bg-indigo-500 rounded "
+          >
+            Products
+          </Link>
+          <Link href={"/login"} className="p-2 text-sm bg-indigo-500 rounded ">
             Giris yap
           </Link>
           <Link
             href={"/register"}
-            className="p-2 text-sm bg-indigo-500 rounded text-white"
+            className="p-2 text-sm bg-indigo-500 rounded "
           >
             Kayit ol
           </Link>

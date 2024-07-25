@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "./components/header";
+import { GlobalProvider } from "./GlobalProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,8 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        <div className="max-width py-5 h-full ">{children}</div>
+        <GlobalProvider>
+          <div className="h-full ">{children}</div>
+        </GlobalProvider>
       </body>
     </html>
   );

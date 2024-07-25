@@ -7,3 +7,12 @@ export async function GET() {
 
   return Response.json({ category });
 }
+
+export async function POST(request) {
+  await connectDB();
+  const category = await Category.create({
+    name: request.json().name,
+  });
+
+  return Response.json({ category });
+}
