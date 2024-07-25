@@ -1,7 +1,7 @@
-import ProductCard from "./components/productCard/index";
-import HomeBanner from "./components/homeBanner/index";
-import HomeServices from "./components/HomeServices/index.jsx";
-import MobileProducts from "./components/mobileProducts/index";
+import ProductCard from "./components/productCard";
+import HomeBanner from "./components/homeBanner";
+import HomeServices from "./components/homeServices";
+import MobileProducts from "./components/mobileProducts";
 import Header from "./components/header";
 
 async function getData() {
