@@ -1,6 +1,6 @@
 import ProductCard from "./components/productCard/index";
 import HomeBanner from "./components/homeBanner/index";
-import HomeServices from "./components/HomeServices/index";
+import HomeServices from "./components/HomeServices/index.jsx";
 import MobileProducts from "./components/mobileProducts/index";
 import Header from "./components/header";
 
