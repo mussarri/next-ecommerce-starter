@@ -35,7 +35,10 @@ const Products = async ({ params, searchParams }) => {
           <div className="grid grid-cols-3 gap-10">
             {data && data?.products?.map((item) => <ProductCard {...item} />)}
           </div>
-
+          <Pagination
+            resPerPage={data?.resPerPage}
+            productsCount={data?.productsCount}
+          />
         </div>
       </div>
     </div>

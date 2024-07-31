@@ -10,16 +10,20 @@ export async function GET(request) {
     return request.nextUrl.searchParams.get(field);
   }
 
+  const resPerPage = 6;
+
   const page = request.nextUrl.searchParams.get("page") || 1;
   if (getQuery("category")) query.category = getQuery("category");
   if (getQuery("min")) query.price = { ...query.price, $gte: getQuery("min") };
   if (getQuery("max")) query.price = { ...query.price, $lte: getQuery("max") };
 
-  const products = await Product.find(query)
-    .skip((page - 1) * 6)
-    .limit(6);
+  const productsCount = await Product.countDocuments(query);
 
-  return Response.json({ products });
+  const products = await Product.find(query)
+    .skip((page - 1) * resPerPage)
+    .limit(resPerPage);
+
+  return Response.json({ products, resPerPage, productsCount });
 }
 
 export async function POST(request) {

@@ -23,6 +23,8 @@ const nextConfig = {
       "pk_test_51PiaWvGZrqp2CxIHJqIoyccvgwqKdQLXtjchkj0qNqvczXHjQcoRViijiab9RknlGBo05ZCR6vvOyrLTcZNsGjBA00QiS3SeSC",
     STRIPE_SECRET:
       "sk_test_51PiaWvGZrqp2CxIHcVp0yixj5IGAGYZZs4grq3omqdfOgnI9IkUlbOtn549GlrcP1CUKl0Amvu4tFZUNoWBFNHp500ZAE7hXV3",
+    STRIPE_WEBHOOK_SECRET:
+      "whsec_0020e2c2d1921e98bc67f568899f0680b5e53b31be851e1bb84e2b411b2e4f92",
   },
 };
 
