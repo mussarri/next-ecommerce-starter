@@ -11,7 +11,7 @@ export async function GET() {
 export async function POST(request) {
   await connectDB();
   const category = await Category.create({
-    name: request.json().name,
+    name: await request.json()?.name,
   });
 
   return Response.json({ category });

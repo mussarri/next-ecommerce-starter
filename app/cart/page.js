@@ -2,12 +2,12 @@
 import React from "react";
 import { useContext } from "react";
 
-import CartContext from "../../../context/CartContext";
+import CartContext from "../../context/CartContext";
 import Link from "next/link";
 import Image from "next/image";
 
 const Cart = () => {
-  const { cart, addItemToCart, deleteItemFromCart } = useContext(CartContext);
+  const { cart, addItemToCart, deleteItemFromCart ,saveOnCheckout} = useContext(CartContext);
 
   const increaseQty = (cartItem) => {
     const newQty = cartItem?.quantity + 1;
@@ -36,9 +36,19 @@ const Cart = () => {
 
   const totalAmount = (Number(amountWithoutTax) + Number(taxAmount)).toFixed(2);
 
+  const checkoutHandler = () => {
+    const data = {
+      amount: amountWithoutTax,
+      tax: taxAmount,
+      totalAmount,
+    };
+
+    saveOnCheckout(data);
+  };
+
   return (
     <>
-      <section className="py-5 sm:py-7 bg-silver">
+      <section className="py-5 sm:py-7 bg-blue-100">
         <div className=" max-width px-4">
           <h2 className="text-3xl font-semibold mb-2">
             {cart?.cartItems?.length || 0} Item(s) in Cart
@@ -80,7 +90,7 @@ const Cart = () => {
                           <div className="flex flex-row h-10 w-full rounded-lg relative mt-1">
                             <button
                               data-action="decrement"
-                              className=" bg-silver  hover:text-[#000] hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none"
+                              className=" bg-blue-100  hover:text-[#000] hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none"
                               onClick={() => decreaseQty(cartItem)}
                             >
                               <span className="m-auto text-2xl font-thin">
@@ -89,14 +99,14 @@ const Cart = () => {
                             </button>
                             <input
                               type="number"
-                              className="outline-none focus:outline-none text-center w-full bg-silver font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-900  outline-none custom-input-number"
+                              className="outline-none focus:outline-none text-center w-full bg-blue-100 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-900  outline-none custom-input-number"
                               name="custom-input-number"
                               value={cartItem.quantity}
                               readOnly
                             ></input>
                             <button
                               data-action="increment"
-                              className="bg-silver text-metal hover:text-[#000] hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer"
+                              className="bg-blue-100 text-metal hover:text-[#000] hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer"
                               onClick={() => increaseQty(cartItem)}
                             >
                               <span className="m-auto text-2xl font-thin">
@@ -108,7 +118,7 @@ const Cart = () => {
                         <div>
                           <div className="leading-5">
                             <p className="font-semibold not-italic">
-                              {/* ${cartItem.price * cartItem.quantity.toFixed(2)} */}
+                              ${cartItem.price * cartItem.quantity.toFixed(2)}
                             </p>
                             <small className="text-gray-400">
                               {" "}
@@ -162,12 +172,12 @@ const Cart = () => {
                     </li>
                   </ul>
 
-                  <Link
-                    href={"/checkout"}
+                  <a
+                    onClick={checkoutHandler}
                     className="px-4 py-3 mb-2 inline-block text-lg w-full text-center font-medium text-white bg-green border border-transparent rounded-md hover:opacity-80 cursor-pointer"
                   >
                     Continue
-                  </Link>
+                  </a>
 
                   <Link
                     href="/"

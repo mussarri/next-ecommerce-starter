@@ -25,7 +25,7 @@ const MobileProducts = async () => {
         Top Sellers
       </h1>
       <div className="grid grid-cols-4 gap-10 mt-5">
-        {data && products.slice(0,4).map((item) => <ProductCard {...item} />)}
+        {data && products.slice(0, 4).map((item) => <ProductCard {...item} />)}
       </div>
     </div>
   );

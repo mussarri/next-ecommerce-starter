@@ -22,6 +22,14 @@ module.exports = {
       bermuda: "#78dcca",
       green: "green",
       error: "#dc2626",
+      lightgray: "#edf1f3",
+      blue: {
+        100: "#dbeafe",
+        500: "#3b82f6",
+      },
+      red: {
+        500: "#ef4444",
+      },
     },
     extend: {
       backgroundImage: {

@@ -9,27 +9,20 @@ const nextConfig = {
       },
     ],
   },
-  async headers() {
-    return [
-      {
-        // matching all API routes
-        source: "/api/:path*",
+  env: {
+    NEXTAUTH_SECRET: "musarridevelopment",
+    NEXTAUTH_URL: "http://localhost:3000",
+    DOMAIN: "http://localhost:3000",
+    DATABASE_URL:
+      "mongodb+srv://msaricicek99:BA4B62dm7eJezjU0@cluster0.gyuydbk.mongodb.net/ecommerce",
+    API_URL: "http://localhost:3000/",
+    NEXT_PUBLIC_API_URL: "http://localhost:3000/",
 
-        headers: [
-          { key: "Access-Control-Allow-Credentials", value: "true" },
-          { key: "Access-Control-Allow-Origin", value: "*" }, // replace this your actual origin
-          {
-            key: "Access-Control-Allow-Methods",
-            value: "GET,DELETE,PATCH,POST,PUT",
-          },
-          {
-            key: "Access-Control-Allow-Headers",
-            value:
-              "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
-          },
-        ],
-      },
-    ];
+    NEXTAUTH_URL_INTERNAL: "http://127.0.0.1:3000",
+    STRIPE_PK:
+      "pk_test_51PiaWvGZrqp2CxIHJqIoyccvgwqKdQLXtjchkj0qNqvczXHjQcoRViijiab9RknlGBo05ZCR6vvOyrLTcZNsGjBA00QiS3SeSC",
+    STRIPE_SECRET:
+      "sk_test_51PiaWvGZrqp2CxIHcVp0yixj5IGAGYZZs4grq3omqdfOgnI9IkUlbOtn549GlrcP1CUKl0Amvu4tFZUNoWBFNHp500ZAE7hXV3",
   },
 };
 

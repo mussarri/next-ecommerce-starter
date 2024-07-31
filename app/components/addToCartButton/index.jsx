@@ -13,7 +13,7 @@ const AddToCart = ({ product }) => {
       stock: product.stock,
     });
   };
-  console.log(cart);
+
   return (
     <div className="py-3">
       <button
