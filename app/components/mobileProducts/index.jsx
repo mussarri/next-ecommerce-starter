@@ -1,7 +1,7 @@
 import ProductCard from "../productCard/index";
 
 async function getData() {
-  const res = await fetch("http://127.0.0.1:3000/api/products");
+  const res = await fetch(process.env.API_URL + "/api/products");
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
