@@ -11,12 +11,12 @@ const nextConfig = {
   },
   env: {
     NEXTAUTH_SECRET: "musarridevelopment",
-    NEXTAUTH_URL: "http://localhost:3000",
-    DOMAIN: "http://localhost:3000",
+    NEXTAUTH_URL: "https://next-ecommerce-ebon.vercel.app",
+    DOMAIN: "https://next-ecommerce-ebon.vercel.app",
     DATABASE_URL:
       "mongodb+srv://msaricicek99:BA4B62dm7eJezjU0@cluster0.gyuydbk.mongodb.net/ecommerce",
-    API_URL: "http://localhost:3000/",
-    NEXT_PUBLIC_API_URL: "http://localhost:3000/",
+    API_URL: "https://next-ecommerce-ebon.vercel.app",
+    NEXT_PUBLIC_API_URL: "https://next-ecommerce-ebon.vercel.app",
 
     NEXTAUTH_URL_INTERNAL: "http://127.0.0.1:3000",
     STRIPE_PK:
