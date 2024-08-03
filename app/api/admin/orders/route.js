@@ -56,12 +56,6 @@ export async function DELETE(req) {
     return authResponse;
   }
 
-  // const isAuthorized = authorizeRoles(req, ["admin"]);
-
-  // if (isAuthorized) {
-  //   return isAuthorized;
-  // }
-
   function getQuery(field) {
     return req.nextUrl.searchParams.get(field);
   }
@@ -84,12 +78,6 @@ export async function PUT(req) {
   if (authResponse) {
     return authResponse;
   }
-
-  // const isAuthorized = authorizeRoles(req, ["admin"]);
-
-  // if (isAuthorized) {
-  //   return isAuthorized;
-  // }
 
   function getQuery(field) {
     return req.nextUrl.searchParams.get(field);

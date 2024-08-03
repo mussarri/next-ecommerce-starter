@@ -8,6 +8,9 @@ config.autoAddCss = false;
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 export const metadata = {
   title: "Ecommerce",
   description: "Ecommerce",
