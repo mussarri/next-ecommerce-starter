@@ -1,6 +1,6 @@
 import getRawBody from "raw-body";
 import Order from "../../../../model/Order";
-import { stripe } from "../../checkout_session/route";
+import { stripe } from "../../../lib/stripe";
 import { NextResponse } from "next/server";
 
 async function getCartItems(line_items) {
