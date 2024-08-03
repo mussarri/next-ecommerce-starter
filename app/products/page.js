@@ -29,10 +29,10 @@ const Products = async ({ params, searchParams }) => {
       <h1 className="uppercase font-semibold" style={{ fontSize: "1.6rem" }}>
         Products
       </h1>
-      <div className="flex gap-5 mt-4">
+      <div className="flex gap-5 mt-4 flex-col lg:flex-row">
         <Filter />
-        <div style={{ width: "75%" }}>
-          <div className="grid grid-cols-3 gap-10">
+        <div className="lg:w-[75%]">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-6 lg:gap-10">
             {data && data?.products?.map((item) => <ProductCard {...item} />)}
           </div>
           <Pagination

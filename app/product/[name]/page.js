@@ -29,7 +29,7 @@ export default async function Page({ params }) {
   return (
     <div className="max-width p-5">
       {product && (
-        <div className="flex gap-5">
+        <div className="flex gap-5 flex-col sm:flex-row">
           <ProductImages images={product.images} />
 
           <div className="flex-1 w-full flex flex-col gap-2">

@@ -1,15 +1,17 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Sidebar from "../components/sidebar";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function UserLayout({ children }) {
   return (
     <>
       <section className="py-5 sm:py-7 bg-blue-100">
-        <div className="container max-width px-5">
+        <div className="container max-width px-5 ">
           <h1 className="text-bold text-2xl">User Dashboard</h1>
         </div>
       </section>
 
-      <section className="py-10">
+      <section className="py-5 md:py-10">
         <div className="container max-width px-5">
           <div className="flex flex-col md:flex-row -mx-4">
             <Sidebar />

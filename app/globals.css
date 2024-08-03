@@ -48,3 +48,55 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+
+.home-banner h1 {
+    font-size: 4rem;
+}
+
+@media screen and (max-width : 868px) {
+    .home-banner h1 {
+        font-size: 3rem;
+    }
+
+
+}
+
+@media screen and (max-width : 648px) {
+    .home-banner h1 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width : 490px) {
+    .home-banner {
+        padding: 20px 0;
+    }
+
+    .home-banner h1 {
+        font-size: 1.5rem;
+    }
+
+}
+
+@media screen and (max-width : 550px) {
+    .cart-product {
+        flex-wrap: wrap;
+    }
+}
+
+.product-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@media screen and (max-width : 434px) {
+    .home-services {
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+
+    .product-title {
+        font-size: 0.9rem;
+    }
+}

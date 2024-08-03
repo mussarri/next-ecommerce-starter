@@ -65,7 +65,7 @@ const ProductCard = ({
       >
         <p
           className={
-            "font-semibold uppercase " + (text === "sm" ? " text-sm" : "")
+            "font-semibold uppercase product-title" + (text === "sm" ? " text-sm" : "")
           }
         >
           {title}

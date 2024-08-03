@@ -20,11 +20,11 @@ const MobileProducts = async () => {
       .map(({ value }) => value);
 
   return (
-    <div className="max-width p-2 border-b border-silver bg-white py-16 ">
+    <div className=" max-width p-2 border-b border-silver bg-white py-16 ">
       <h1 className="uppercase font-semibold" style={{ fontSize: "1.6rem" }}>
         Top Sellers
       </h1>
-      <div className="grid grid-cols-4 gap-10 mt-5">
+      <div className="products-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 px-2 sm:px-0 mt-5">
         {data && products.slice(0, 4).map((item) => <ProductCard {...item} />)}
       </div>
     </div>

@@ -7,7 +7,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Cart = () => {
-  const { cart, addItemToCart, deleteItemFromCart ,saveOnCheckout} = useContext(CartContext);
+  const { cart, addItemToCart, deleteItemFromCart, saveOnCheckout } =
+    useContext(CartContext);
 
   const increaseQty = (cartItem) => {
     const newQty = cartItem?.quantity + 1;
@@ -59,12 +60,12 @@ const Cart = () => {
       {cart?.cartItems?.length > 0 && (
         <section className="py-10">
           <div className=" max-width px-4">
-            <div className="flex gap-4">
-              <main className="md:w-3/4">
+            <div className="flex gap-4 flex-col items-end lg:flex-row lg:items-start">
+              <main className="w-full lg:w-3/4">
                 <article className="border border-[#aaa] shadow-sm rounded mb-5 p-3 lg:p-5">
                   {cart?.cartItems?.map((cartItem) => (
                     <div>
-                      <div className="flex gap-5 items-center mb-4">
+                      <div className="flex cart-product gap-5 items-center mb-4">
                         <div className="w-full lg:w-2/5 xl:w-2/4">
                           <figure className="flex items-center leading-5">
                             <div>
@@ -145,7 +146,7 @@ const Cart = () => {
                   ))}
                 </article>
               </main>
-              <aside className="md:w-1/4">
+              <aside className="w-full md:w-1/2 lg:-1/4 ">
                 <article className="border border-[#aaa] shadow-sm rounded mb-5 p-3 lg:p-5">
                   <ul className="mb-5">
                     <li className="flex justify-between text-[#333]  mb-1">

@@ -28,7 +28,7 @@ const Filter = () => {
   );
 
   useEffect(() => {
-    fetch(process.env.API_URL + "/api/category")
+    fetch(process.env.NEXT_PUBLIC_API_URL + "/api/category")
       .then((res) => res.json())
       .then((data) => data.category)
       .then((category) => setCategories(category));
@@ -49,7 +49,7 @@ const Filter = () => {
   };
 
   return (
-    <div className="" style={{ width: "25%" }}>
+    <div className="lg:w-[25%]">
       <div className="border rounded border-[#bbb] p-5">
         <div className="w-full">
           <div className="flex justify-between items-center">

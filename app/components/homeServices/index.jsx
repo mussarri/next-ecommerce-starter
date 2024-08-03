@@ -37,7 +37,7 @@ const services = [
 
 const HomeServices = () => {
   return (
-    <div className="max-width p-2 grid grid-cols-4 gap-5 border-b border-silver bg-white py-24">
+    <div className="home-services max-width p-2 px-5 grid grid-cols-2 md:grid-cols-4 gap-10 sm:gap-5 border-b border-silver bg-white py-10 md:py-24">
       {services.map((item) => (
         <Service {...item} />
       ))}
