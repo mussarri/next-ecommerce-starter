@@ -46,7 +46,7 @@ const Profile = ({ address = [] }) => {
       </div>
       <div className="flex gap-3 border-t border-lightgray py-5">
         <Link
-          href={"profile/newAddress"}
+          href={"/profile/newAddress"}
           className="bg-white text-blue-500 border text-sm border-blue-100 hover:bg-blue-100 p-2 px-3 rounded "
         >
           <FontAwesomeIcon icon={faPlus} /> Add New Address
