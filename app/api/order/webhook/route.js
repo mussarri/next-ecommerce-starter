@@ -2,7 +2,6 @@ import getRawBody from "raw-body";
 import Order from "../../../../model/Order";
 import { stripe } from "../../checkout_session/route";
 import { NextResponse } from "next/server";
-import { buffer } from "micro";
 
 async function getCartItems(line_items) {
   return new Promise((resolve, reject) => {
@@ -71,9 +70,3 @@ export async function POST(req, res) {
     return NextResponse.json({ message: error }, { status: 500 });
   }
 }
-
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
