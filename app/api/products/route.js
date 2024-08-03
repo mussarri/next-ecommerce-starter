@@ -26,10 +26,3 @@ export async function GET(request) {
   return Response.json({ products, resPerPage, productsCount });
 }
 
-export async function POST(request) {
-  await connectDB();
-  const data = request.json();
-  const product = await Product.create(data);
-
-  return NextResponse.json({ product });
-}

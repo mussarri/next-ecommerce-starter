@@ -13,3 +13,16 @@ export async function isAuthenticatedUser(req, res) {
 
   return null;
 }
+
+export function authorizeRoles(req, roles) {
+  if (!roles.includes(req.user.role)) {
+    return NextResponse.json(
+      {
+        message: `Role (${req.user.role}) is not allowed to access this resource.`,
+      },
+      { status: 401 }
+    );
+  }
+
+  return null;
+}

@@ -25,6 +25,7 @@
     "react-dom": "^18",
     "react-fontawesome": "^1.7.1",
     "react-js-pagination": "^3.0.3",
+    "react-loader-spinner": "^6.1.6",
     "react-toastify": "^10.0.5",
     "slugify": "^1.6.6",
     "stripe": "^16.5.0",

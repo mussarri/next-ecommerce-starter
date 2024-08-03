@@ -17,7 +17,7 @@ const Sidebar = () => {
           <li>
             {" "}
             <Link
-              href="/admin/products/new"
+              href="/admin/addProduct"
               className="block px-3 py-2 text-[#333] hover:bg-blue-100 hover:text-blue-500 rounded-md"
             >
               New Product <span className="text-red-500">(Admin)</span>

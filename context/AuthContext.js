@@ -1,6 +1,7 @@
 "use client";
 
 import axios from "axios";
+import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { createContext, useState } from "react";
 
@@ -93,8 +94,58 @@ export const AuthProvider = ({ children }) => {
         `${process.env.NEXT_PUBLIC_API_URL}api/address/` + id
       );
 
-      if (data?.address) {
+      if (data.address) {
         router.push("/profile");
+      }
+    } catch (error) {
+      setError(error?.response?.data?.message);
+    }
+  };
+
+  const updatePassword = async (id, { password }) => {
+    try {
+      const { data } = await axios.put(
+        `${process.env.NEXT_PUBLIC_API_URL}api/auth/updatePassword?id=` + id,
+        {
+          password,
+        }
+      );
+
+      if (data?.user) {
+        setUpdated(true);
+        router.push("/profile");
+      }
+    } catch (error) {
+      setError(error?.response?.data?.message);
+    }
+  };
+  const loadUser = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}api/auth/session?update`
+      );
+      if (data?.user) {
+        console.log(data, "data:");
+        setUser(data.user);
+        router.replace("/profile");
+      }
+    } catch (error) {
+      setError(error?.response?.data?.message);
+    }
+  };
+  const updateProfile = async (id, { name, email }) => {
+    try {
+      const { data } = await axios.put(
+        `${process.env.NEXT_PUBLIC_API_URL}api/auth/user?id=` + id,
+        {
+          name,
+          email,
+        }
+      );
+
+      if (data?.user) {
+        router.replace("/profile");
+        signOut();
       }
     } catch (error) {
       setError(error?.response?.data?.message);
@@ -117,7 +168,9 @@ export const AuthProvider = ({ children }) => {
         updateAddress,
         deleteAddress,
         updated,
-        setUpdated
+        setUpdated,
+        updatePassword,
+        updateProfile,
       }}
     >
       {children}

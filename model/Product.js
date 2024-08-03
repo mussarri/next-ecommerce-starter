@@ -9,6 +9,11 @@ const Product = new mongoose.Schema(
     category: { type: String, required: true },
     stock: { type: String, required: true },
     slug: { type: String },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: false,
+    },
     images: [
       {
         url: {

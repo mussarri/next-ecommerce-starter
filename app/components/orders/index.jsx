@@ -12,12 +12,12 @@ const ListOrders = ({ orders, count }) => {
   const params = useSearchParams();
   const router = useRouter();
 
-  const orderSuccess = params.get("order_success");
-  console.log(orders);
+  const orderSuccess = params.get("success");
+
   useEffect(() => {
     if (orderSuccess === "true") {
       clearCart();
-      router.replace("/me/orders");
+      router.replace("/profile/orders");
     }
   }, []);
 

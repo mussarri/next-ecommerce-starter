@@ -20,7 +20,7 @@ const getOrders = async (searchParams) => {
 const Orders = async ({ searchParams }) => {
   const data = await getOrders(searchParams);
 
-  return <ListOrders orders={data}   />;
+  return <ListOrders orders={data} />;
 };
 
 export default Orders;
