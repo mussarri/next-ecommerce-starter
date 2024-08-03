@@ -4,7 +4,10 @@ import ProductCard from "../../components/productCard";
 import AddToCartButton from "../../components/addToCartButton";
 
 async function getData(name) {
-  const res = await fetch(process.env.API_URL + "/api/products/" + name, {
+   
+
+  const res = await fetch(`${process.env.API_URL}/api/products/` + name, {
+    method: "GET",
     cache: "no-store",
   });
 
@@ -22,10 +25,9 @@ export async function generateMetadata({ params, searchParams }) {
 
 export default async function Page({ params }) {
   const data = await getData(params.name);
+
   const product = data && data.product;
-  if (!product) {
-    return;
-  }
+
   return (
     <div className="max-width p-5">
       {product && (

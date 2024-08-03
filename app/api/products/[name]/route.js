@@ -3,8 +3,8 @@ import Product from "../../../../model/Product";
 
 export async function GET(request, route) {
   await connectDB();
+
   const name = route.params.name;
-  console.log(name);
 
   const product = await Product.findOne({ slug: name });
 
