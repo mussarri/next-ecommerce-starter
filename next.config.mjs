@@ -9,7 +9,7 @@ const nextConfig = {
       },
     ],
   },
-  trailingSlash: true,
+
   env: {
     NEXTAUTH_SECRET: "musarridevelopment",
     NEXTAUTH_URL: "https://next-ecommerce-ebon.vercel.app",
