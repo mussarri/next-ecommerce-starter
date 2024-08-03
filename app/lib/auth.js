@@ -1,4 +1,5 @@
 import User from "../../model/User";
+import CredentialsProvider from "next-auth/providers/credentials";
 
 export const authOptions = {
   session: {
