@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
-import Stripe from "stripe";
 import { isAuthenticatedUser } from "../../../middlewares/auth";
 import connectDB from "../../lib/connectDb";
-
-export const stripe = new Stripe(process.env.STRIPE_SECRET);
+import stripe from "../../lib/stripe";
 
 export async function POST(req) {
   await connectDB();
