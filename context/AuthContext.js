@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
   const registerUser = async ({ name, email, password }) => {
     try {
       const { data } = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}api/auth/register`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`,
         {
           name,
           email,
@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
   }) => {
     try {
       const { data } = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}api/address`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/address`,
         {
           street,
           city,
@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }) => {
   ) => {
     try {
       const { data } = await axios.put(
-        `${process.env.NEXT_PUBLIC_API_URL}api/address/` + id,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/address/` + id,
         {
           street,
           city,
@@ -91,7 +91,7 @@ export const AuthProvider = ({ children }) => {
   const deleteAddress = async (id) => {
     try {
       const { data } = await axios.delete(
-        `${process.env.NEXT_PUBLIC_API_URL}api/address/` + id
+        `${process.env.NEXT_PUBLIC_API_URL}/api/address/` + id
       );
 
       if (data.address) {
@@ -105,7 +105,7 @@ export const AuthProvider = ({ children }) => {
   const updatePassword = async (id, { password }) => {
     try {
       const { data } = await axios.put(
-        `${process.env.NEXT_PUBLIC_API_URL}api/auth/updatePassword?id=` + id,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/updatePassword?id=` + id,
         {
           password,
         }
@@ -122,7 +122,7 @@ export const AuthProvider = ({ children }) => {
   const loadUser = async () => {
     try {
       const { data } = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}api/auth/session?update`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/session?update`
       );
       if (data?.user) {
         console.log(data, "data:");
@@ -136,7 +136,7 @@ export const AuthProvider = ({ children }) => {
   const updateProfile = async (id, { name, email }) => {
     try {
       const { data } = await axios.put(
-        `${process.env.NEXT_PUBLIC_API_URL}api/auth/user?id=` + id,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/user?id=` + id,
         {
           name,
           email,
