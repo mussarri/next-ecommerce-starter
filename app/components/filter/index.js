@@ -28,7 +28,7 @@ const Filter = () => {
   );
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/category")
+    fetch(process.env.API_URL + "/api/category")
       .then((res) => res.json())
       .then((data) => data.category)
       .then((category) => setCategories(category));
@@ -37,7 +37,7 @@ const Filter = () => {
   useEffect(() => {
     setMin(searchParams.get("min"));
     setMax(searchParams.get("max"));
-  }, [searchParams.get('min'), searchParams.get("max")]);
+  }, [searchParams.get("min"), searchParams.get("max")]);
 
   const updateQuery = (field, value) => {
     router.push(pathname + "?" + createQueryString(field, value));
