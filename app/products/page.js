@@ -11,7 +11,7 @@ async function getData(category, page, min, max) {
   min && params.set("min", min);
   max && params.set("max", max);
   const res = await fetch(
-    process.env.API_URL + "api/products?" + params.toString(),
+    process.env.API_URL + "/api/products?" + params.toString(),
     {
       cache: "no-store",
     }
