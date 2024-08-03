@@ -4,7 +4,7 @@ import ProductCard from "../../components/productCard";
 import AddToCartButton from "../../components/addToCartButton";
 
 async function getData(name) {
-  const res = await fetch(process.env.API_URL + "api/products/" + name, {
+  const res = await fetch(process.env.API_URL + "/api/products/" + name, {
     cache: "no-store",
   });
 

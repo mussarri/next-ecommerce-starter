@@ -4,7 +4,7 @@ import Filter from "../components/filter/index";
 import Pagination from "../components/pagination";
 
 async function getData(category, page, min, max) {
-  let url = new URL(process.env.API_URL + "api/products");
+  let url = new URL(process.env.API_URL + "/api/products");
   let params = new URLSearchParams(url.search);
   category && params.set("category", category);
   page && params.set("page", page);
