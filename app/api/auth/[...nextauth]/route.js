@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 import User from "../../../../model/User";
 import connectDb from "../../../lib/connectDb";
 
-export const authOptions = {
+const authOptions = {
   session: {
     strategy: "jwt",
   },
