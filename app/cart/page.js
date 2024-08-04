@@ -146,7 +146,7 @@ const Cart = () => {
                   ))}
                 </article>
               </main>
-              <aside className="w-full md:w-1/2 lg:-1/4 ">
+              <aside className="w-full md:w-1/2 lg:w-1/4 ">
                 <article className="border border-[#aaa] shadow-sm rounded mb-5 p-3 lg:p-5">
                   <ul className="mb-5">
                     <li className="flex justify-between text-[#333]  mb-1">

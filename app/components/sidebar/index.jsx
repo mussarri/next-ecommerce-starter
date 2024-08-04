@@ -48,7 +48,7 @@ const Sidebar = () => {
               </div>
             )}
 
-            {user.role === "admin" && (
+            {user?.role === "admin" && (
               <>
                 <li>
                   {" "}

@@ -1,6 +1,8 @@
 import connectDB from "../../../lib/connectDb";
 import Product from "../../../../model/Product";
 
+export const dynamicParams = true
+
 export async function GET(request, route) {
   await connectDB();
 
