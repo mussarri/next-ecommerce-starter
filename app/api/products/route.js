@@ -10,6 +10,13 @@ export async function GET(request) {
     return request.nextUrl.searchParams.get(field);
   }
 
+  if (getQuery("all")) {
+    console.log("all");
+
+    const products = await Product.find();
+
+    return NextResponse.json({ products });
+  }
   const resPerPage = 6;
 
   const page = request.nextUrl.searchParams.get("page") || 1;
@@ -23,6 +30,5 @@ export async function GET(request) {
     .skip((page - 1) * resPerPage)
     .limit(resPerPage);
 
-  return Response.json({ products, resPerPage, productsCount });
+  return NextResponse.json({ products, resPerPage, productsCount });
 }
-
