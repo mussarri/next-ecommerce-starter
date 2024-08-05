@@ -69,11 +69,25 @@ input[type=number] {
 
 @media screen and (max-width : 490px) {
     .home-banner {
-        padding: 20px 0;
+        padding: 0 0 20px 0;
+
     }
 
     .home-banner h1 {
         font-size: 1.5rem;
+    }
+
+    .home-banner>div {
+        flex-direction: column-reverse;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .home-banner>div>div {
+
+        align-items: center;
+        display: flex;
+        flex-direction: column;
     }
 
 }

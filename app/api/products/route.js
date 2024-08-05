@@ -5,22 +5,20 @@ import { NextResponse } from "next/server";
 export async function GET(request) {
   await connectDB();
   const query = {};
-
+  const resPerPage = 6;
+  const page = request.nextUrl.searchParams.get("page") || 1;
   function getQuery(field) {
     return request.nextUrl.searchParams.get(field);
   }
 
   if (getQuery("all")) {
-    console.log("all");
-
     const products = await Product.find();
 
     return NextResponse.json({ products });
   }
-  const resPerPage = 6;
 
-  const page = request.nextUrl.searchParams.get("page") || 1;
   if (getQuery("category")) query.category = getQuery("category");
+  if (getQuery("q")) query.title = new RegExp(getQuery("q"), "i");
   if (getQuery("min")) query.price = { ...query.price, $gte: getQuery("min") };
   if (getQuery("max")) query.price = { ...query.price, $lte: getQuery("max") };
 

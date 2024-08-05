@@ -2,14 +2,22 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { setMaxListeners } from "stream";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAngleDown,
+  faAngleUp,
+  faArrowDown,
+  faArrowUp,
+} from "@fortawesome/free-solid-svg-icons";
+import { useMediaQuery } from "usehooks-ts";
 
 const Filter = () => {
   const [categories, setCategories] = useState();
   const [min, setMin] = useState();
   const [max, setMax] = useState();
-
+  const [isOpen, setIsOpen] = useState(false);
   const searchParams = useSearchParams();
-
+  const mobile = useMediaQuery("(max-width: 1024px)");
   const category = searchParams.get("category");
 
   const page = searchParams.get("page");
@@ -47,7 +55,7 @@ const Filter = () => {
     window.history.replaceState(null, null, window.location.pathname);
     window.location.reload();
   };
-
+  const open = !mobile ? true : isOpen;
   return (
     <div className="lg:w-[25%]">
       <div className="border rounded border-[#bbb] p-5">
@@ -88,9 +96,21 @@ const Filter = () => {
           </div>
         </div>
         <div className="w-full mt-4">
-          <h1 className="py-2 font-semibold">Category</h1>
+          <div
+            className="flex justify-between items-center"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <h1 className="py-2 font-semibold">Category</h1>
+            {mobile && (
+              <FontAwesomeIcon
+                icon={isOpen ? faAngleUp : faAngleDown}
+                className="cursor-pointer"
+              />
+            )}
+          </div>
           <div className="flex gap-1 flex-col w-full">
-            {categories &&
+            {open &&
+              categories &&
               categories.map((item) => (
                 <label
                   className="capitalize cursor-pointer"

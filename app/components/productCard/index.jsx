@@ -5,6 +5,7 @@ import Link from "next/link";
 import React, { useContext } from "react";
 import slugify from "slugify";
 import CartContext from "../../../context/CartContext";
+import { motion } from "framer-motion";
 
 const ProductCard = ({
   title,
@@ -32,7 +33,7 @@ const ProductCard = ({
         className="bg-silver rounded flex justify-center flex-col relative overflow-hidden relative"
         style={{ aspectRatio: 6 / 7 }}
       >
-        {images.length > 0 && (
+        {images?.length > 0 && (
           <Link
             href={"/product/" + slugify(title, { lower: true, strict: true })}
           >
@@ -65,7 +66,8 @@ const ProductCard = ({
       >
         <p
           className={
-            "font-semibold uppercase product-title" + (text === "sm" ? " text-sm" : "")
+            "font-semibold uppercase product-title" +
+            (text === "sm" ? " text-sm" : "")
           }
         >
           {title}
