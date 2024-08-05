@@ -10,6 +10,7 @@ import {
   faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { useMediaQuery } from "usehooks-ts";
+import { motion } from "framer-motion"
 
 const Filter = () => {
   const [categories, setCategories] = useState();

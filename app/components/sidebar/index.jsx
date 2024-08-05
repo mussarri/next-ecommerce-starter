@@ -91,8 +91,6 @@ const Sidebar = () => {
                 </li>
               </>
             )}
-
-            <hr />
           </>
 
           <li>
