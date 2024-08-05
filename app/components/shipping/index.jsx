@@ -24,7 +24,7 @@ const Shipping = ({ addresses }) => {
     // move to stripe checkoutpage
     try {
       const { data } = await axios.post(
-        `${process.env.API_URL}/api/checkout_session`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/checkout_session`,
         {
           items: cart?.cartItems,
           shippingInfo,
