@@ -152,6 +152,23 @@ export const AuthProvider = ({ children }) => {
       setError(error?.response?.data?.message);
     }
   };
+  const updateUser = async (id, { name, email }) => {
+    try {
+      const { data } = await axios.put(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/admin/user?id=` + id,
+        {
+          name,
+          email,
+        }
+      );
+
+      if (data?.user) {
+        router.replace("/profile");
+      }
+    } catch (error) {
+      setError(error?.response?.data?.message);
+    }
+  };
 
   const clearErrors = () => {
     setError(null);
@@ -172,6 +189,7 @@ export const AuthProvider = ({ children }) => {
         setUpdated,
         updatePassword,
         updateProfile,
+        updateUser,
       }}
     >
       {children}

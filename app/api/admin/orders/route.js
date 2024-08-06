@@ -16,6 +16,14 @@ export async function GET(req) {
     return authResponse;
   }
 
+  if (req.user.role !== "admin") {
+    return NextResponse.json(
+      {
+        message: `Role (${req.user.role}) is not allowed to access this resource.`,
+      },
+      { status: 401 }
+    );
+  }
   // const isAuthorized = authorizeRoles(req, ["admin"]);
 
   // if (isAuthorized) {
@@ -56,6 +64,15 @@ export async function DELETE(req) {
     return authResponse;
   }
 
+  if (req.user.role !== "admin") {
+    return NextResponse.json(
+      {
+        message: `Role (${req.user.role}) is not allowed to access this resource.`,
+      },
+      { status: 401 }
+    );
+  }
+
   function getQuery(field) {
     return req.nextUrl.searchParams.get(field);
   }
@@ -77,6 +94,15 @@ export async function PUT(req) {
 
   if (authResponse) {
     return authResponse;
+  }
+
+  if (req.user.role !== "admin") {
+    return NextResponse.json(
+      {
+        message: `Role (${req.user.role}) is not allowed to access this resource.`,
+      },
+      { status: 401 }
+    );
   }
 
   function getQuery(field) {

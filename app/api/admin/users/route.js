@@ -16,14 +16,22 @@ export async function GET(req) {
     return authResponse;
   }
 
+  if (req.user.role !== "admin") {
+    return NextResponse.json(
+      {
+        message: `Role (${req.user.role}) is not allowed to access this resource.`,
+      },
+      { status: 401 }
+    );
+  }
+
   function getQuery(field) {
     return req.nextUrl.searchParams.get(field);
   }
 
   if (getQuery("id")) {
-    const user = await User.findById(getQuery("id")).populate(
-      "shippingInfo user"
-    );
+    const user = await User.findById(getQuery("id"));
+
     return Response.json({ user });
   }
 
@@ -80,20 +88,25 @@ export async function PUT(req) {
   if (authResponse) {
     return authResponse;
   }
+  if (req.user.role !== "admin") {
+    return NextResponse.json(
+      {
+        message: `Role (${req.user.role}) is not allowed to access this resource.`,
+      },
+      { status: 401 }
+    );
+  }
 
   function getQuery(field) {
     return req.nextUrl.searchParams.get(field);
   }
 
   if (getQuery("id")) {
-    const order = await Order.findByIdAndUpdate(getQuery("id"), {
-      orderStatus: data.orderStatus,
-    });
+    const user = await User.findByIdAndUpdate(getQuery("id"), data);
     return Response.json({
       success: true,
-      order,
     });
   }
 
-  return NextResponse.json({ error: "Order is not found" });
+  return NextResponse.json({ error: "User is not found" });
 }

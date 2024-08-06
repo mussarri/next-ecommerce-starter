@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faRotateBack } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Page = ({ address }) => {
   const [street, setStreet] = useState(address.street);
