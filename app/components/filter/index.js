@@ -10,7 +10,7 @@ import {
   faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { useMediaQuery } from "usehooks-ts";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 const Filter = () => {
   const [categories, setCategories] = useState();
@@ -116,7 +116,10 @@ const Filter = () => {
                 <label
                   className="capitalize cursor-pointer"
                   style={{ fontSize: "0.9rem" }}
-                  onClick={() => updateQuery("category", item.name)}
+                  onClick={() => {
+                    updateQuery("category", item.name);
+                    updateQuery("page", 1);
+                  }}
                 >
                   <input
                     type="radio"
