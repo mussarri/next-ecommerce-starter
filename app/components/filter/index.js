@@ -35,6 +35,7 @@ const Filter = () => {
       }
       params.set(name, value);
       params.delete("page");
+      params.delete("q");
       return params.toString();
     },
     [searchParams]
