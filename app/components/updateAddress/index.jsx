@@ -67,7 +67,7 @@ const Page = ({ address }) => {
           <Link href="/profile">
             <FontAwesomeIcon icon={faArrowLeft} />
           </Link>
-          <h1 className="font-semibold">Add Address</h1>
+          <h1 className="font-semibold">Update Address</h1>
         </div>
         <div className="grid grid-cols-3 gap-3 w-full">
           <div className="">

@@ -16,7 +16,20 @@ export async function PUT(req) {
   }
 
   if (getQuery("id")) {
-    const user = await User.findById(getQuery("id"));
+    const user = await User.findById(getQuery("id")).select("+password");
+
+    const isPasswordMatched = await bcrypt.compare(
+      data.oldPassword,
+      user.password
+    );
+
+    if (!isPasswordMatched) {
+      return NextResponse.json(
+        { message: "Password is incorrect" },
+        { status: 400 }
+      );
+    }
+
     user.password = data.password;
     await user.save();
 

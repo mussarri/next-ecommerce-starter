@@ -102,12 +102,13 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const updatePassword = async (id, { password }) => {
+  const updatePassword = async (id, { password, oldPassword }) => {
     try {
       const { data } = await axios.put(
         `${process.env.NEXT_PUBLIC_API_URL}/api/auth/updatePassword?id=` + id,
         {
           password,
+          oldPassword,
         }
       );
 

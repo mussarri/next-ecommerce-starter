@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faRotateBack } from "@fortawesome/free-solid-svg-icons";
 
 const Page = () => {
+  const [oldPassword, setOldPassword] = useState();
   const [password, setPassword] = useState();
   const [passwordCheck, setPasswordCheckk] = useState();
 
@@ -37,6 +38,7 @@ const Page = () => {
     }
     await updatePassword(user._id, {
       password,
+      oldPassword
     });
   };
 
@@ -51,12 +53,22 @@ const Page = () => {
         </div>
         <div className="flex flex-col  gap-3 w-full">
           <div className="w-[50%]">
+            <label className="block mb-1">Old Password</label>
+            <input
+              type="password"
+              value={oldPassword}
+              onChange={(e) => setOldPassword(e.target.value)}
+              placeholder="Old Password"
+              className="border rounded p-2 text-sm shadow w-full"
+            />
+          </div>
+          <div className="w-[50%]">
             <label className="block mb-1">New Password</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
+              placeholder="New Password"
               className="border rounded p-2 text-sm shadow w-full"
             />
           </div>
@@ -66,7 +78,7 @@ const Page = () => {
               type="password"
               value={passwordCheck}
               onChange={(e) => setPasswordCheckk(e.target.value)}
-              placeholder="Password check"
+              placeholder="New Password check"
               className="border rounded p-2 text-sm shadow w-full"
             />{" "}
           </div>
