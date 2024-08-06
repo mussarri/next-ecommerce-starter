@@ -29,8 +29,12 @@ const Filter = () => {
   const createQueryString = useCallback(
     (name, value) => {
       const params = new URLSearchParams(searchParams);
+      if (name === "category") {
+        params.delete("min");
+        params.delete("max");
+      }
       params.set(name, value);
-
+      params.delete("page");
       return params.toString();
     },
     [searchParams]
@@ -117,8 +121,8 @@ const Filter = () => {
                   className="capitalize cursor-pointer"
                   style={{ fontSize: "0.9rem" }}
                   onClick={() => {
-                    updateQuery("category", item.name);
                     updateQuery("page", 1);
+                    updateQuery("category", item.name);
                   }}
                 >
                   <input
