@@ -51,7 +51,7 @@ const Cart = () => {
     <>
       <section className="py-5 sm:py-7 bg-blue-100">
         <div className=" max-width px-4">
-          <h2 className="text-3xl font-semibold mb-2">
+          <h2 className="text-xl sm:text-3xl font-semibold mb-2">
             {cart?.cartItems?.length || 0} Item(s) in Cart
           </h2>
         </div>
