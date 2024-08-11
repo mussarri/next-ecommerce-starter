@@ -21,10 +21,17 @@ async function getData(category, page, min, max, q) {
   return res.json();
 }
 
+async function getCategories() {
+  const res = await fetch(process.env.API_URL + "/api/category", {
+    cache: "no-store",
+  });
+  return res.json();
+}
+
 const Products = async ({ params, searchParams }) => {
   const { category, page, min, max, q } = searchParams;
   const data = await getData(category, page, min, max, q);
-
+  const categories = await getCategories();
   return (
     <div className="p-5 pb-20 max-width">
       {" "}
@@ -32,7 +39,7 @@ const Products = async ({ params, searchParams }) => {
         Products
       </h1>
       <div className="flex gap-5 mt-4 flex-col lg:flex-row">
-        <Filter />
+        <Filter categories={categories?.category} />
         {data?.products.length > 0 ? (
           <div className="lg:w-[75%]">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-6 lg:gap-10">

@@ -12,16 +12,14 @@ import {
 import { useMediaQuery } from "usehooks-ts";
 import { motion } from "framer-motion";
 
-const Filter = () => {
-  const [categories, setCategories] = useState();
-  const [min, setMin] = useState();
-  const [max, setMax] = useState();
-  const [isOpen, setIsOpen] = useState(false);
+const Filter = ({ categories }) => {
   const searchParams = useSearchParams();
+  const [isOpen, setIsOpen] = useState(false);
   const mobile = useMediaQuery("(max-width: 1024px)");
   const category = searchParams.get("category");
-
   const page = searchParams.get("page");
+  const [min, setMin] = useState(searchParams.get("min"));
+  const [max, setMax] = useState(searchParams.get("max"));
 
   const router = useRouter();
   const pathname = usePathname();
@@ -42,16 +40,9 @@ const Filter = () => {
   );
 
   useEffect(() => {
-    fetch(process.env.NEXT_PUBLIC_API_URL + "/api/category")
-      .then((res) => res.json())
-      .then((data) => data.category)
-      .then((category) => setCategories(category));
-  }, []);
-
-  useEffect(() => {
-    setMin(searchParams.get("min"));
-    setMax(searchParams.get("max"));
-  }, [searchParams.get("min"), searchParams.get("max")]);
+    setMin(searchParams.get("min") || "");
+    setMax(searchParams.get("max") || "");
+  }, [searchParams, searchParams.get("min"), searchParams.get("max")]);
 
   const updateQuery = (field, value) => {
     router.push(pathname + "?" + createQueryString(field, value));
