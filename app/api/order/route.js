@@ -19,9 +19,10 @@ export async function GET(request) {
 
   const page = getQuery("page") || 1;
 
-  const count = await Order.countDocuments({ user: request.user?._id });
+  const count = await Order.countDocuments(query);
 
   const orders = await Order.find(query)
+    .sort({ createdAt: -1 })
     .skip((page - 1) * resPerPage)
     .limit(resPerPage)
     .populate("shippingInfo user");
