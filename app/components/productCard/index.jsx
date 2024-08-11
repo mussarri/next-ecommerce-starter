@@ -52,7 +52,7 @@ const ProductCard = ({
           style={{ zIndex: 10 }}
         >
           <button
-            className="card-btn text-white bg-button hover:bg-buttonhover p-2 px-4 rounded flex"
+            className="card-btn text-white bg-button hover:bg-buttonhover p-2 px-4 rounded flex text-sm"
             onClick={handleClick}
           >
             Add to Cart

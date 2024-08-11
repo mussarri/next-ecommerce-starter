@@ -16,7 +16,7 @@ const services = [
   {
     title: "free delivery",
     description: "Consectetur adipi elit lorem ipsum dolor sit amet.",
-    icon: "cart-shopping ",
+    icon: "cart-shopping delivery",
   },
   {
     title: "Quality guarantee",

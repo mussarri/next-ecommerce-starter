@@ -23,11 +23,20 @@ body {
 
 .card-btn {
     display: none;
+
 }
 
-.productcard:hover .card-btn {
-    display: block;
+@media screen and (min-width : 768px) {
+
+    .productcard:hover .card-btn {
+        display: block;
+    }
 }
+
+
+
+
+
 
 input:focus {
     outline: none;

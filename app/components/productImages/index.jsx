@@ -19,7 +19,7 @@ const ProductImages = ({ images }) => {
           className="w-full  "
         />
       </div>
-      <div className="grid grid-cols-6 gap-2 w-full mt-2">
+      <div className="grid grid-cols-3 lg:grid-cols-6 gap-2 w-full mt-2">
         {images.map((item, index) => (
           <div
             className={

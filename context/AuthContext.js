@@ -126,7 +126,6 @@ export const AuthProvider = ({ children }) => {
         `${process.env.NEXT_PUBLIC_API_URL}/api/auth/session?update`
       );
       if (data?.user) {
-        console.log(data, "data:");
         setUser(data.user);
         router.replace("/profile");
       }

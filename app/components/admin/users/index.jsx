@@ -50,7 +50,7 @@ const Users = ({ data }) => {
               <td className="px-6 py-2">{user?.email}</td>
 
               <td className="px-6 py-2">
-                <div>
+                <div className="flex">
                   <Link
                     href={`/admin/users/${user?._id}`}
                     className="px-2 py-2 inline-block text-[#facc15] bg-white shadow-sm border border-[#ccc] rounded-md hover:bg-lightgray cursor-pointer mr-2"

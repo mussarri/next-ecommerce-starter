@@ -16,7 +16,7 @@ export const OrderProvider = ({ children }) => {
   const updateOrder = async (id, orderData) => {
     try {
       const { data } = await axios.put(
-        `${process.env.API_URL}/api/admin/orders?id=${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/admin/orders?id=${id}`,
         orderData
       );
 
@@ -32,7 +32,7 @@ export const OrderProvider = ({ children }) => {
   const deleteOrder = async (id) => {
     try {
       const { data } = await axios.delete(
-        `${process.env.API_URL}/api/admin/orders?id=${id}`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/admin/orders?id=${id}`
       );
 
       if (data?.success) {

@@ -44,7 +44,7 @@ const Products = ({ data }) => {
               <td className="px-6 py-2">{product?.stock}</td>
               <td className="px-6 py-2">${product?.price}</td>
               <td className="px-6 py-2">
-                <div>
+                <div className="flex">
                   {/* <Link
                     href={`/admin/products/upload_images`}
                     className="px-2 py-2 inline-block text-[#16a34a] bg-white shadow-sm border border-[#ccc] rounded-md hover:bg-lightgray cursor-pointer mr-2"

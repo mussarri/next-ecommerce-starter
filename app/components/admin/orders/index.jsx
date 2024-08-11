@@ -51,7 +51,7 @@ const Orders = ({ orders }) => {
               <td className="px-6 py-2">${order?.paymentInfo?.amountPaid}</td>
               <td className="px-6 py-2">{order?.orderStatus}</td>
               <td className="px-6 py-2">
-                <div>
+                <div className="flex">
                   <Link
                     href={`/admin/orders/${order?._id}`}
                     className="px-2 py-2 inline-block text-[#facc15] bg-white shadow-sm border border-[#ccc] rounded-md hover:bg-lightgray cursor-pointer mr-2"

@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { createContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const CartContext = createContext();
 
@@ -37,10 +38,14 @@ export const CartProvider = ({ children }) => {
 
     if (isItemExist) {
       newCartItems = cart?.cartItems?.map((i) =>
-        i.product === isItemExist?.product ? item : i
+        i.product === isItemExist?.product
+          ? { ...i, quantity: i.quantity + 1 }
+          : i
       );
+      toast.success("Added to cart");
     } else {
       newCartItems = [...(cart?.cartItems || []), item];
+      toast.success("Added to cart");
     }
 
     localStorage.setItem("cart", JSON.stringify({ cartItems: newCartItems }));

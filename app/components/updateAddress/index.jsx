@@ -69,7 +69,7 @@ const Page = ({ address }) => {
           </Link>
           <h1 className="font-semibold">Update Address</h1>
         </div>
-        <div className="grid grid-cols-3 gap-3 w-full">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 w-full">
           <div className="">
             <label className="block mb-1"> Street </label>
             <input

@@ -40,7 +40,7 @@ const NewProduct = ({ categories }) => {
   };
 
   return (
-    <section className="container max-w-3xl p-6 mr-auto">
+    <section className="container max-w-3xl p-3 lg:p-6 mr-auto">
       <h1 className="mb-3 text-xl md:text-2xl font-semibold text-black mb-8">
         Create New Product
       </h1>
