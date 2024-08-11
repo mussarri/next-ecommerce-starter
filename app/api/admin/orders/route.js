@@ -24,20 +24,15 @@ export async function GET(req) {
       { status: 401 }
     );
   }
-  // const isAuthorized = authorizeRoles(req, ["admin"]);
-
-  // if (isAuthorized) {
-  //   return isAuthorized;
-  // }
 
   function getQuery(field) {
     return req.nextUrl.searchParams.get(field);
   }
 
   if (getQuery("id")) {
-    const order = await Order.findById(getQuery("id")).populate(
-      "shippingInfo user"
-    );
+    const order = await Order.findById(getQuery("id"))
+      .sort({ createdAt: -1 })
+      .populate("shippingInfo user");
     return Response.json({ order });
   }
 
@@ -48,6 +43,7 @@ export async function GET(req) {
   const ordersCount = await Order.countDocuments(query);
 
   const orders = await Order.find(query)
+    .sort({ createdAt: -1 })
     .skip((page - 1) * resPerPage)
     .limit(resPerPage)
     .populate("shippingInfo user");
