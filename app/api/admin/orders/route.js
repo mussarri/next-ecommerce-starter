@@ -31,7 +31,7 @@ export async function GET(req) {
 
   if (getQuery("id")) {
     const order = await Order.findById(getQuery("id"))
-      .sort({ createdAt: -1 })
+      .sort({ createAt: -1 })
       .populate("shippingInfo user");
     return Response.json({ order });
   }
@@ -43,7 +43,7 @@ export async function GET(req) {
   const ordersCount = await Order.countDocuments(query);
 
   const orders = await Order.find(query)
-    .sort({ createdAt: -1 })
+    .sort({ createAt: -1 })
     .skip((page - 1) * resPerPage)
     .limit(resPerPage)
     .populate("shippingInfo user");

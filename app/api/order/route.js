@@ -22,7 +22,7 @@ export async function GET(request) {
   const count = await Order.countDocuments(query);
 
   const orders = await Order.find(query)
-    .sort({ createdAt: -1 })
+    .sort({ createAt: -1 })
     .skip((page - 1) * resPerPage)
     .limit(resPerPage)
     .populate("shippingInfo user");
