@@ -21,6 +21,17 @@ const Header = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
+
+  useEffect(() => {
+    const q = searchParams.get("q");
+    console.log("q değişti:", q);
+
+    // örnek: q parametresi varsa sil
+    if (q == null) {
+      setSearch("");
+    }
+  }, [searchParams]);
+
   useEffect(() => {
     if (data) {
       setUser(data?.user);

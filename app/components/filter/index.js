@@ -24,6 +24,12 @@ const Filter = ({ categories }) => {
   const router = useRouter();
   const pathname = usePathname();
 
+  const removeQueryParam = (paramName) => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete(paramName);
+    window.history.replaceState({}, "", url.toString());
+  };
+
   const createQueryString = useCallback(
     (name, value) => {
       const params = new URLSearchParams(searchParams);
@@ -72,7 +78,9 @@ const Filter = ({ categories }) => {
               placeholder="min"
               className="border border-silver rounded p-2 flex-1 w-full text-sm"
               value={min}
-              onChange={(e) => setMin(e.target.value)}
+              onChange={(e) => {
+                setMin(e.target.value);
+              }}
             />
             <input
               type="text"
@@ -115,6 +123,7 @@ const Filter = ({ categories }) => {
                   onClick={() => {
                     updateQuery("page", 1);
                     updateQuery("category", item.name);
+                    console.log("click1");
                   }}
                 >
                   <input
@@ -123,7 +132,6 @@ const Filter = ({ categories }) => {
                     className="mr-2 cursor-pointer"
                     value={item.name}
                     checked={category === item.name}
-                    onChange={(e) => updateQuery("category", e.target.value)}
                   />
                   {item.name.replace("-", " ")}
                 </label>

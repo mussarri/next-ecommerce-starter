@@ -4,6 +4,9 @@ import { NextResponse } from "next/server";
 
 export async function GET(request) {
   await connectDB();
+  const ip = Object.fromEntries(request.headers)["x-forwarded-for"];
+  console.log(ip);
+
   const query = {};
   const resPerPage = 6;
   const page = request.nextUrl.searchParams.get("page") || 1;
