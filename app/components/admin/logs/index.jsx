@@ -13,6 +13,12 @@ const Logs = ({ data }) => {
               IP
             </th>
             <th scope="col" className="px-6 py-3">
+              Country
+            </th>
+            <th scope="col" className="px-6 py-3">
+              City
+            </th>
+            <th scope="col" className="px-6 py-3">
               Date
             </th>
           </tr>
@@ -23,6 +29,8 @@ const Logs = ({ data }) => {
             .map((log) => (
               <tr className="bg-white">
                 <td className="px-6 py-2">{log?.ip}</td>
+                <td className="px-6 py-2">{log?.country}</td>
+                <td className="px-6 py-2">{log?.city}</td>
                 <td className="px-6 py-2">
                   {log.createAt.split("T")[0] +
                     " " +
