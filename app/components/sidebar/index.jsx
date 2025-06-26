@@ -96,6 +96,16 @@ const Sidebar = () => {
                     All Users <span className="text-red-500">(Admin)</span>
                   </Link>
                 </li>
+                <li>
+                  {" "}
+                  <Link
+                    href="/admin/logs"
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="block px-3 py-2 text-[#333] hover:bg-blue-100 hover:text-blue-500 rounded-md"
+                  >
+                    Logs <span className="text-red-500">(Admin)</span>
+                  </Link>
+                </li>
               </>
             )}
           </>

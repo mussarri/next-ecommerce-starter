@@ -1,11 +1,15 @@
 import connectDB from "../../lib/connectDb";
 import Product from "../../../model/Product";
+import Log from "../../../model/Log";
 import { NextResponse } from "next/server";
 
 export async function GET(request) {
   await connectDB();
   const ip = Object.fromEntries(request.headers)["x-forwarded-for"];
-  console.log(ip);
+
+  const saveLog = await Log.create({
+    ip,
+  });
 
   const query = {};
   const resPerPage = 6;
