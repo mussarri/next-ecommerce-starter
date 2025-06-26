@@ -11,7 +11,7 @@ export async function GET(request) {
     method: "GET",
   });
   const data = await ipData.json();
-  await Log.create(data);
+  if (data.status !== "fail") await Log.create(data);
 
   const query = {};
   const resPerPage = 6;

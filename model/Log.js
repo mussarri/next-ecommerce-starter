@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 const Log = new mongoose.Schema({
   ip: { type: String, required: true },
   query: { type: String },
+  message: { type: String },
+  status: { type: String },
   success: { type: String },
   country: { type: String },
   countryCode: { type: String },
