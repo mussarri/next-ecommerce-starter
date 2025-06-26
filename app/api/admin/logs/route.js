@@ -8,7 +8,7 @@ import connectDB from "../../../lib/connectDb";
 
 export async function GET(req) {
   await connectDB();
-  const query = {};
+  const query = { ip: { $ne: "::1" } };
 
   const authResponse = await isAuthenticatedUser(req);
 

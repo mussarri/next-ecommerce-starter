@@ -2,6 +2,7 @@ import React from "react";
 import Pagination from "../../pagination";
 
 const Logs = ({ data }) => {
+
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       <h1 className="text-3xl my-5 ml-4 font-bold">{data?.logsCount} Logs</h1>
@@ -17,12 +18,18 @@ const Logs = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data?.logs?.map((log) => (
-            <tr className="bg-white">
-              <td className="px-6 py-2">{log?.ip}</td>
-              <td className="px-6 py-2">{log?.createdAt}</td>
-            </tr>
-          ))}
+          {data?.logs
+            ?.filter((log) => log.ip !== "::1")
+            .map((log) => (
+              <tr className="bg-white">
+                <td className="px-6 py-2">{log?.ip}</td>
+                <td className="px-6 py-2">
+                  {log.createAt.split("T")[0] +
+                    " " +
+                    log.createAt.split("T")[1].slice(0, 8)}
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
       <div className="mb-6">
