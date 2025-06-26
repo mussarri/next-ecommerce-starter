@@ -7,6 +7,12 @@ export async function GET(request) {
   await connectDB();
   const ip = Object.fromEntries(request.headers)["x-forwarded-for"];
 
+  const ipData = await fetch(`http://ip-api.com/json/` + ip, {
+    method: "GET",
+  });
+  const data = await ipData.json();
+  await Log.create(data);
+
   const query = {};
   const resPerPage = 6;
   const page = request.nextUrl.searchParams.get("page") || 1;
@@ -16,11 +22,6 @@ export async function GET(request) {
 
   if (getQuery("all")) {
     const products = await Product.find();
-    const ipData = await fetch(`http://ip-api.com/json/` + ip, {
-      method: "GET",
-    });
-    const data = await ipData.json();
-    await Log.create(data);
 
     return NextResponse.json({ products });
   }
